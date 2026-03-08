@@ -6,24 +6,58 @@ import logging
 import os
 import asyncio
 from messages import get_text  # Импортируем функцию для получения текста
+import requests  # Для автопинга
+import threading  # Для автопинга
+import time  # Для автопинга
+import sys  # Добавлено для диагностики
+
+# Настройка логгера с поддержкой Windows
+class WindowsConsoleHandler(logging.StreamHandler):
+    """Обработчик логов, который заменяет эмодзи на текст для Windows"""
+    def emit(self, record):
+        try:
+            msg = self.format(record)
+            # Заменяем эмодзи на текстовые аналоги для Windows
+            if sys.platform == 'win32':
+                msg = msg.replace('✅', '[OK]')
+                msg = msg.replace('🔄', '[PING]')
+                msg = msg.replace('❌', '[ERROR]')
+                msg = msg.replace('🔴', '[RED]')
+                msg = msg.replace('🟢', '[GREEN]')
+                msg = msg.replace('💰', '[MONEY]')
+                msg = msg.replace('💼', '[BAG]')
+                msg = msg.replace('📄', '[DOC]')
+                msg = msg.replace('🔗', '[LINK]')
+                msg = msg.replace('📝', '[NOTE]')
+                msg = msg.replace('⚠️', '[WARN]')
+                msg = msg.replace('🔹', '>')
+            stream = self.stream
+            stream.write(msg + self.terminator)
+            self.flush()
+        except Exception:
+            self.handleError(record)
 
 # Настройка логгера
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
-    handlers=[
-        logging.FileHandler('bot.log'),  # Запись в файл
-        logging.StreamHandler()         # Вывод в консоль
-    ]
-)
-
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Создаем обработчик для файла (всегда работает)
+file_handler = logging.FileHandler('bot.log', encoding='utf-8')
+file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+logger.addHandler(file_handler)
+
+# Создаем обработчик для консоли с поддержкой Windows
+console_handler = WindowsConsoleHandler()
+console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+logger.addHandler(console_handler)
 
 # Конфигурация бота
 BOT_TOKEN = "8633462057:AAHcxtADXeta8kUNvXWYnuZhtGWKARUgURw"  # Замените на ваш токен
 ADMIN_ID = 6812643332  # ID администратора
 VALUTE = "RUB"  # По умолчанию валюта - RUB
+
+# Флаг для предотвращения множественного запуска
+BOT_RUNNING = False
 
 # Хранение данных
 user_data = {}  # Данные пользователей: {user_id: {'wallet': 'адрес', 'balance': float, 'successful_deals': int, 'lang': 'ru'}}
@@ -641,8 +675,44 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         logger.error(f"Ошибка в функции handle_message: {e}")
         await update.message.reply_text("Произошла ошибка. Пожалуйста, попробуйте позже.")
 
+# Функция для поддержания бота активным на Render
+def keep_alive():
+    """Пинг сам себя каждые 10 минут, чтобы Render не отключал"""
+    
+    # 🔥 ВАЖНО: ЗАМЕНИТЕ на URL вашего бота на Render!
+    # Пример: https://otc-elf.onrender.com
+    RENDER_URL = "https://otc-lm75.onrender.com"  # ← ИЗМЕНИТЕ ЭТО!
+    
+    def ping():
+        while True:
+            try:
+                # Отправляем GET-запрос к самому себе
+                response = requests.get(RENDER_URL, timeout=10)
+                # Используем текст без эмодзи для Windows
+                logger.info(f"Auto-ping: status {response.status_code}")
+            except Exception as e:
+                logger.error(f"Auto-ping error: {e}")
+            
+            # Спим 10 минут (600 секунд)
+            time.sleep(600)
+    
+    # Запускаем пинг в отдельном потоке
+    thread = threading.Thread(target=ping, daemon=True)
+    thread.start()
+    logger.info("Keep-alive system started")
+
 # Запуск бота
 def main() -> None:
+    global BOT_RUNNING
+    
+    # Проверяем, не запущен ли уже бот
+    if BOT_RUNNING:
+        logger.error("Бот уже запущен! Завершаем работу.")
+        return
+    
+    BOT_RUNNING = True
+    keep_alive()  # Запускаем систему автопинга
+    
     try:
         init_db()  # Инициализация базы данных
         load_data()  # Загрузка данных из базы данных
@@ -664,6 +734,8 @@ def main() -> None:
         application.run_polling(allowed_updates=Update.ALL_TYPES)
     except Exception as e:
         logger.error(f"Ошибка при запуске бота: {e}")
+    finally:
+        BOT_RUNNING = False
 
 if __name__ == "__main__":
     main()
