@@ -237,7 +237,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 [InlineKeyboardButton(get_text(lang, "referral_button"), callback_data='referral')],
                 [InlineKeyboardButton(get_text(lang, "withdraw_button"), callback_data='withdraw')],  # Добавлена кнопка вывода
                 [InlineKeyboardButton(get_text(lang, "change_lang_button"), callback_data='change_lang')],
-                [InlineKeyboardButton(get_text(lang, "support_button"), url='https://t.me/otcgifttg/113382/113404')],
+                [InlineKeyboardButton(get_text(lang, "support_button"), url='https://t.me/ElfiSupport')],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
             
