@@ -1,0 +1,768 @@
+2026-03-07 15:51:29 - INFO - Loaded administrators: {6496180455}, Successful deals threshold: 3
+2026-03-07 15:51:30 - INFO - Starting bot...
+2026-03-07 15:51:30 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getMe "HTTP/1.1 200 OK"
+2026-03-07 15:51:31 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-07 15:51:31 - INFO - Application started
+2026-03-07 15:51:31 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:51:31 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendPhoto "HTTP/1.1 200 OK"
+2026-03-07 15:51:37 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:51:42 - ERROR - Telegram API error in start: Timed out
+Traceback (most recent call last):
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_backends\anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vrach\Desktop\Сливаю копию бота OTC-ELF\Новая папка\bot.py", line 442, in start
+    await _display_main_menu(update, context, chat_id, user_id, lang)
+  File "C:\Users\vrach\Desktop\Сливаю копию бота OTC-ELF\Новая папка\bot.py", line 330, in _display_main_menu
+    await context.bot.send_photo(
+    ...<5 lines>...
+    )
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\ext\_extbot.py", line 3201, in send_photo
+    return await super().send_photo(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<25 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 1607, in send_photo
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<22 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\ext\_extbot.py", line 629, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<23 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 819, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 703, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\ext\_extbot.py", line 369, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 732, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-03-07 15:51:43 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:51:44 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:51:45 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendPhoto "HTTP/1.1 200 OK"
+2026-03-07 15:51:46 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:51:46 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:51:46 - INFO - Callback received: create_deal from user 6496180455
+2026-03-07 15:51:47 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:51:48 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:51:49 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:51:49 - INFO - Callback received: menu from user 6496180455
+2026-03-07 15:51:49 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:51:50 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:51:51 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:51:51 - INFO - Callback received: admin_panel from user 6496180455
+2026-03-07 15:51:51 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:00 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:07 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:08 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:08 - INFO - Callback received: wallet from user 6812643332
+2026-03-07 15:52:08 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:10 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:10 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:10 - INFO - Callback received: menu from user 6812643332
+2026-03-07 15:52:10 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:11 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:12 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:12 - INFO - Callback received: create_deal from user 6812643332
+2026-03-07 15:52:12 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:13 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:13 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:13 - INFO - Callback received: wallet_menu from user 6812643332
+2026-03-07 15:52:13 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:15 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:15 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:15 - INFO - Callback received: add_card from user 6812643332
+2026-03-07 15:52:16 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:18 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:18 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:18 - INFO - Callback received: menu from user 6812643332
+2026-03-07 15:52:18 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:20 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:20 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:20 - INFO - Callback received: wallet_menu from user 6812643332
+2026-03-07 15:52:21 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:23 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:23 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:23 - INFO - Callback received: add_ton_wallet from user 6812643332
+2026-03-07 15:52:24 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:27 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:27 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:52:29 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:29 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:29 - INFO - Callback received: menu from user 6812643332
+2026-03-07 15:52:29 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 400 Bad Request"
+2026-03-07 15:52:29 - WARNING - Failed to edit message caption: There is no caption in the message to edit
+2026-03-07 15:52:29 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendPhoto "HTTP/1.1 200 OK"
+2026-03-07 15:52:31 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:31 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:31 - INFO - Callback received: create_deal from user 6812643332
+2026-03-07 15:52:31 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:33 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:34 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:52:34 - INFO - Callback received: payment_method_ton from user 6812643332
+2026-03-07 15:52:34 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:52:37 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:37 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:52:40 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:52:41 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getMe "HTTP/1.1 200 OK"
+2026-03-07 15:52:41 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:52:51 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:53:01 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:53:11 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:53:21 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:53:29 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:53:29 - INFO - Processing deal 4c9e44de for user 6496180455
+2026-03-07 15:53:33 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getChat "HTTP/1.1 200 OK"
+2026-03-07 15:53:33 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:53:34 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getChat "HTTP/1.1 200 OK"
+2026-03-07 15:53:34 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:53:34 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-07 15:53:34 - ERROR - Failed to send new deal notification to admin chat -2: Chat not found
+2026-03-07 15:53:38 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:53:38 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:53:38 - INFO - Callback received: pay_from_balance_4c9e44de from user 6496180455
+2026-03-07 15:53:38 - INFO - Processing payment for deal 4c9e44de, method: ton, amount: 133.0, buyer: 6496180455
+2026-03-07 15:53:38 - INFO - Buyer balance for ton: 0.0
+2026-03-07 15:53:38 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:53:41 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:53:42 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:53:42 - INFO - Callback received: admin_change_balance from user 6496180455
+2026-03-07 15:53:42 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:53:52 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:54:02 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:54:04 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:54:12 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:54:21 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:54:24 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:54:26 - ERROR - Error in handle_message: Timed out
+Traceback (most recent call last):
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_backends\anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vrach\Desktop\Сливаю копию бота OTC-ELF\Новая папка\bot.py", line 1522, in handle_message
+    await update.message.reply_text(
+    ...<3 lines>...
+    )
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_message.py", line 2068, in reply_text
+    return await self.get_bot().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<21 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\ext\_extbot.py", line 3115, in send_message
+    return await super().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<23 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 1122, in send_message
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<21 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\ext\_extbot.py", line 629, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<23 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 819, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 703, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\ext\_extbot.py", line 369, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 732, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-03-07 15:54:28 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:54:28 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:54:28 - INFO - Callback received: menu from user 6496180455
+2026-03-07 15:54:28 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 400 Bad Request"
+2026-03-07 15:54:28 - WARNING - Failed to edit message caption: There is no caption in the message to edit
+2026-03-07 15:54:29 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendPhoto "HTTP/1.1 200 OK"
+2026-03-07 15:54:33 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:54:33 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:54:33 - INFO - Callback received: admin_panel from user 6496180455
+2026-03-07 15:54:34 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:54:35 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:54:36 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:54:36 - INFO - Callback received: admin_change_balance from user 6496180455
+2026-03-07 15:54:36 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:54:40 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:54:40 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:54:43 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:54:44 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:54:44 - INFO - Callback received: pay_from_balance_4c9e44de from user 6496180455
+2026-03-07 15:54:44 - INFO - Processing payment for deal 4c9e44de, method: ton, amount: 133.0, buyer: 6496180455
+2026-03-07 15:54:44 - INFO - Buyer balance for ton: 10000.0
+2026-03-07 15:54:44 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:54:44 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getChat "HTTP/1.1 200 OK"
+2026-03-07 15:54:44 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:54:44 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getChat "HTTP/1.1 200 OK"
+2026-03-07 15:54:45 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-07 15:54:45 - ERROR - Failed to send payment confirmation to admin chat -2: Chat not found
+2026-03-07 15:54:54 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:00 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:01 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:55:01 - INFO - Callback received: seller_confirm_sent_4c9e44de from user 6812643332
+2026-03-07 15:55:02 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getChat "HTTP/1.1 200 OK"
+2026-03-07 15:55:02 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:55:02 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getChat "HTTP/1.1 200 OK"
+2026-03-07 15:55:02 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-07 15:55:02 - ERROR - Error processing seller confirmation for deal 4c9e44de: Chat not found
+2026-03-07 15:55:04 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:04 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:55:04 - INFO - Callback received: seller_confirm_sent_4c9e44de from user 6812643332
+2026-03-07 15:55:04 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getChat "HTTP/1.1 200 OK"
+2026-03-07 15:55:04 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:55:04 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getChat "HTTP/1.1 200 OK"
+2026-03-07 15:55:04 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-07 15:55:04 - ERROR - Error processing seller confirmation for deal 4c9e44de: Chat not found
+2026-03-07 15:55:04 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:05 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:55:05 - INFO - Callback received: seller_confirm_sent_4c9e44de from user 6812643332
+2026-03-07 15:55:05 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getChat "HTTP/1.1 200 OK"
+2026-03-07 15:55:05 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:55:05 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getChat "HTTP/1.1 200 OK"
+2026-03-07 15:55:05 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-07 15:55:05 - ERROR - Error processing seller confirmation for deal 4c9e44de: Chat not found
+2026-03-07 15:55:11 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:13 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:16 - ERROR - Error in handle_callback_query: Timed out
+Traceback (most recent call last):
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_backends\anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vrach\Desktop\Сливаю копию бота OTC-ELF\Новая папка\bot.py", line 464, in handle_callback_query
+    await query.answer()
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_callbackquery.py", line 190, in answer
+    return await self.get_bot().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\ext\_extbot.py", line 969, in answer_callback_query
+    return await super().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 4440, in answer_callback_query
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 703, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\ext\_extbot.py", line 369, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 732, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-03-07 15:55:16 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:55:16 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:55:16 - INFO - Callback received: menu from user 6812643332
+2026-03-07 15:55:17 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 400 Bad Request"
+2026-03-07 15:55:17 - WARNING - Failed to edit message caption: There is no caption in the message to edit
+2026-03-07 15:55:17 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendPhoto "HTTP/1.1 200 OK"
+2026-03-07 15:55:21 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:21 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:55:21 - INFO - Callback received: view_balance from user 6812643332
+2026-03-07 15:55:21 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:55:24 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:24 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:55:24 - INFO - Callback received: deposit_balance from user 6812643332
+2026-03-07 15:55:25 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:55:26 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:27 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 15:55:27 - INFO - Callback received: deposit_currency_rub from user 6812643332
+2026-03-07 15:55:27 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
+2026-03-07 15:55:33 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:38 - ERROR - Error in handle_callback_query: Timed out
+Traceback (most recent call last):
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_async\connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_backends\anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vrach\Desktop\Сливаю копию бота OTC-ELF\Новая папка\bot.py", line 464, in handle_callback_query
+    await query.answer()
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_callbackquery.py", line 190, in answer
+    return await self.get_bot().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\ext\_extbot.py", line 969, in answer_callback_query
+    return await super().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 4440, in answer_callback_query
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 703, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\ext\_extbot.py", line 369, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\_bot.py", line 732, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vrach\AppData\Local\Programs\Python\Python313\Lib\site-packages\telegram\request\_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-03-07 15:55:38 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendMessage "HTTP/1.1 200 OK"
+2026-03-07 15:55:43 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:55:53 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:56:03 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:56:14 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:56:24 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:56:34 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:56:44 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:56:54 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:57:04 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:57:14 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:57:25 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:57:35 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:57:45 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:57:55 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:58:05 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:58:15 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:58:25 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:58:36 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:58:46 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:58:56 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:59:06 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:59:16 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:59:26 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:59:36 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:59:47 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 15:59:57 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 16:00:07 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 16:00:17 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 16:00:27 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 16:00:47 - INFO - Loaded administrators: {6496180455}, Successful deals threshold: 3
+2026-03-07 16:00:47 - INFO - Starting bot...
+2026-03-07 16:00:51 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getMe "HTTP/1.1 200 OK"
+2026-03-07 16:00:51 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-07 16:00:51 - INFO - Application started
+2026-03-07 16:00:58 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 16:01:01 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 16:01:01 - INFO - Callback received: menu from user 6496180455
+2026-03-07 16:01:01 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 400 Bad Request"
+2026-03-07 16:01:01 - WARNING - Failed to edit message caption: There is no caption in the message to edit
+2026-03-07 16:01:01 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/sendPhoto "HTTP/1.1 200 OK"
+2026-03-07 16:01:08 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 16:01:14 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/getUpdates "HTTP/1.1 200 OK"
+2026-03-07 16:01:17 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-03-07 16:01:17 - INFO - Callback received: create_deal from user 6496180455
+2026-03-07 16:01:17 - INFO - HTTP Request: POST https://api.telegram.org/bot8675836095:AAH5FYdjyh1ru75FH-e32ion20TtSsq7Zy8/editMessageCaption "HTTP/1.1 200 OK"
